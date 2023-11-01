@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>País de origem</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+        }
+
+        p {
+            font-size: 0.8em;
+        }
+
+        p.inline {
+            display: inline-block
+        }
+
+        input {
+            font-size: 1em;
+            padding: 5px;
+        }
+
+        input#txtpais {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>País de origem:</h1>
+
+    <form action="origem.php" method="get">
+
+        <p>País de origem:</p>
+
+        <input type="text" id="txtpais" maxlength="30" placeholder="País">
+
+        <input type="button" value="Enviar" onclick="enviar()">
+    </form>
+
+    <hr>
+    <p class="inline">És de:</p>
+    <p class="inline" id="origem"></p>
+    <br>
+    <p class="inline">Então és:</p>
+    <p class="inline" id="nacionalidade"></p>
+</body>
+
+    <script>
+        function enviar() {
+            let txtpais = document.getElementById('txtpais')
+            let pais = (txtpais.value)
+            let origem = document.getElementById('origem')
+            let nacionalidade = document.getElementById('nacionalidade')
+
+            origem.innerHTML = `${pais}`
+            
+                if (pais == "Portugal") {
+                    nacionalidade.innerHTML = `És Português!`
+                } else {
+                    nacionalidade.innerHTML = `És Estrangeiro!`
+                }
+        }
+    </script>
+
+</html>
